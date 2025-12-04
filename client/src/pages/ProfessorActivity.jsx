@@ -48,10 +48,10 @@ const ProfessorActivity = () => {
 
   const getReactionIcon = (type) => {
     switch(type) {
-      case 1: return '🤔';
-      case 2: return '😕';
-      case 3: return '💡';
-      case 4: return '🤩';
+      case 1: return '😀';
+      case 2: return '☹️';
+      case 3: return '�';
+      case 4: return '😕';
       default: return '•';
     }
   };
@@ -97,10 +97,10 @@ const ProfessorActivity = () => {
                   <span className="text-2xl">{getReactionIcon(fb.type)}</span>
                   <div>
                     <p className="text-sm text-slate-300">
-                      {fb.type === 1 && "Confused"}
-                      {fb.type === 2 && "Too Fast"}
-                      {fb.type === 3 && "Understood"}
-                      {fb.type === 4 && "Great!"}
+                      {fb.type === 1 && "Happy"}
+                      {fb.type === 2 && "Unhappy"}
+                      {fb.type === 3 && "Surprised"}
+                      {fb.type === 4 && "Confused"}
                     </p>
                     <p className="text-xs text-slate-500">
                       {new Date(fb.timestamp).toLocaleTimeString()}

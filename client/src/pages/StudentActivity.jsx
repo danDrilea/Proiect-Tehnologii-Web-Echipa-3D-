@@ -48,10 +48,10 @@ const StudentActivity = () => {
   };
 
   const reactions = [
-    { id: 1, icon: '🤔', label: 'Confused', color: 'bg-orange-500 hover:bg-orange-600 ring-orange-500/50' },
-    { id: 2, icon: '😕', label: 'Too Fast', color: 'bg-red-500 hover:bg-red-600 ring-red-500/50' },
-    { id: 3, icon: '💡', label: 'Understood', color: 'bg-blue-500 hover:bg-blue-600 ring-blue-500/50' },
-    { id: 4, icon: '🤩', label: 'Great!', color: 'bg-green-500 hover:bg-green-600 ring-green-500/50' },
+    { id: 1, icon: '😀', label: 'Happy', color: 'bg-green-500 hover:bg-green-600 ring-green-500/50' },
+    { id: 2, icon: '☹️', label: 'Unhappy', color: 'bg-red-500 hover:bg-red-600 ring-red-500/50' },
+    { id: 3, icon: '😮', label: 'Surprised', color: 'bg-blue-500 hover:bg-blue-600 ring-blue-500/50' },
+    { id: 4, icon: '😕', label: 'Confused', color: 'bg-orange-500 hover:bg-orange-600 ring-orange-500/50' },
   ];
 
   return (
