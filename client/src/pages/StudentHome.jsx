@@ -1,3 +1,7 @@
+/**
+ * StudentHome Component
+ * Landing page for students to enter activity codes and join sessions
+ */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,6 +12,9 @@ const StudentHome = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
 
+  /**
+   * Validate activity code and join the session
+   */
   const joinActivity = async (e) => {
     e.preventDefault();
     try {
@@ -20,8 +27,8 @@ const StudentHome = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
-      <div className="card w-full max-w-md">
+    <div className="login-container">
+      <div className="card login-card">
         <header className="mb-8 text-center">
           <h1 className="text-2xl font-bold text-white mb-2">Join Activity</h1>
           <p className="text-emerald-200">Enter the code provided by your professor</p>
@@ -31,7 +38,7 @@ const StudentHome = () => {
           <div>
             <input
               type="text"
-              className="input-field text-center text-2xl tracking-widest uppercase font-mono"
+              className="input-field code-input"
               value={code}
               onChange={(e) => setCode(e.target.value.toUpperCase())}
               placeholder="CODE"

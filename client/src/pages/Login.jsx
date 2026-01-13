@@ -1,3 +1,7 @@
+/**
+ * Login Component
+ * Handles user authentication and role selection (student/professor)
+ */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -8,6 +12,10 @@ const Login = () => {
   const [role, setRole] = useState('student');
   const navigate = useNavigate();
 
+  /**
+   * Handle login form submission
+   * Sends credentials to backend and redirects based on role
+   */
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -25,14 +33,15 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-dark">
-      <div className="card w-full max-w-md">
-        <h1 className="text-3xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-          Welcome Back
-        </h1>
+    <div className="login-container">
+      <div className="card login-card">
+        <h1 className="login-title">Welcome Back</h1>
+
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium mb-2 text-emerald-100">Username</label>
+            <label className="text-sm font-medium mb-2 text-emerald-100" style={{ display: 'block' }}>
+              Username
+            </label>
             <input
               type="text"
               className="input-field"
@@ -42,16 +51,12 @@ const Login = () => {
               required
             />
           </div>
-          
-          <div className="grid grid-cols-2 gap-4">
+
+          <div className="role-selector">
             <button
               type="button"
               onClick={() => setRole('student')}
-              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
-                role === 'student' 
-                  ? 'bg-primary/20 border-primary text-primary' 
-                  : 'bg-emerald-900/40 border-emerald-800 text-emerald-400/60 hover:bg-emerald-800/60'
-              }`}
+              className={`role-btn ${role === 'student' ? 'active-student' : ''}`}
             >
               <User size={24} />
               <span className="font-medium">Student</span>
@@ -59,11 +64,7 @@ const Login = () => {
             <button
               type="button"
               onClick={() => setRole('professor')}
-              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
-                role === 'professor' 
-                  ? 'bg-secondary/20 border-secondary text-secondary' 
-                  : 'bg-emerald-900/40 border-emerald-800 text-emerald-400/60 hover:bg-emerald-800/60'
-              }`}
+              className={`role-btn ${role === 'professor' ? 'active-professor' : ''}`}
             >
               <GraduationCap size={24} />
               <span className="font-medium">Professor</span>
