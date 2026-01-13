@@ -293,7 +293,7 @@ io.on("connection", (socket) => {
 
 // Sync DB and Start Server
 sequelize
-  .sync({ alter: true })
+  .sync({ force: true })
   .then(async () => {
     console.log("Database synced");
 
