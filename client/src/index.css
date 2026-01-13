@@ -1,42 +1,50 @@
 /* 
  * Main Stylesheet - Continuous Feedback Application
- * Converted from Tailwind CSS to vanilla CSS
+ * Modern Minimalist Design
  */
 
 /* ==================== CSS Variables ==================== */
 :root {
-  --color-primary: #10B981;
-  --color-primary-hover: #059669;
-  --color-secondary: #84CC16;
-  --color-secondary-hover: #65a30d;
-  --color-dark: #022C22;
-  --color-light: #ECFDF5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-  --color-emerald-800: #065f46;
-  --color-emerald-900: #064e3b;
-  --color-slate-300: #cbd5e1;
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #64748b;
-  --color-slate-600: #475569;
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #0f172a;
-  --color-red-400: #f87171;
-  --color-red-500: #ef4444;
-  --color-green-400: #4ade80;
-  --color-green-500: #22c55e;
-  --color-green-600: #16a34a;
-  --color-blue-500: #3b82f6;
-  --color-blue-600: #2563eb;
-  --color-orange-500: #f97316;
-  --color-orange-600: #ea580c;
-  --color-indigo-400: #818cf8;
+  /* Modern Minimalist Dark Palette */
+
+  /* Primary & Accents */
+  --color-primary: #5E75F2;
+  /* Vibrant Blue */
+  --color-primary-hover: #5568D9;
+  /* Mid Blue */
+  --color-primary-dark: #222E73;
+  /* Deep Blue - Used for accents/sec buttons */
+
+  /* Backgrounds */
+  --color-bg: #121212;
+  /* Deep dark background */
+  --color-surface: #1E1E1E;
+  /* Content surface */
+  --color-surface-hover: #2D2D2D;
+  --color-white: #FFFFFF;
+  /* Pure white for high contrast needs */
+
+  /* Text */
+  --color-text: #F2F2F2;
+  /* Main text (Light Gray) */
+  --color-text-light: #A0A0A0;
+  /* Secondary text */
+  --color-text-muted: #666666;
+  /* Muted text */
+  --color-text-inverse: #121212;
+  /* Text on light backgrounds */
+
+  /* Feedback / Status */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #5E75F2;
+
+  /* Borders */
+  --color-border: #333333;
+  --color-border-light: #404040;
+
+  /* Fonts */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'Fira Code', 'Consolas', monospace;
 }
@@ -58,17 +66,17 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* ==================== Layout Utilities ==================== */
 .app-container {
   min-height: 100vh;
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 /* ==================== User Header ==================== */
@@ -79,11 +87,10 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: rgba(6, 78, 59, 0.8);
-  backdrop-filter: blur(8px);
+  background-color: var(--color-surface);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  border: 1px solid var(--color-emerald-800);
+  border: 1px solid var(--color-border);
   z-index: 1000;
 }
 
@@ -98,19 +105,19 @@ body {
 }
 
 .user-name {
-  color: var(--color-emerald-200);
+  color: var(--color-text);
   font-weight: 500;
 }
 
 .user-role-text {
-  color: var(--color-slate-400);
+  color: var(--color-text-muted);
   font-size: 0.75rem;
 }
 
 .logout-btn {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: var(--color-red-400);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-error);
   padding: 0.25rem 0.75rem;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -119,7 +126,8 @@ body {
 }
 
 .logout-btn:hover {
-  background-color: rgba(239, 68, 68, 0.3);
+  background-color: var(--color-error);
+  color: white;
 }
 
 .min-h-screen {
@@ -406,7 +414,9 @@ body {
 .btn-primary {
   background-color: var(--color-primary);
   color: white;
-  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+  /* Always white text on primary */
+  border: 1px solid transparent;
+  font-weight: 500;
 }
 
 .btn-primary:hover {
@@ -414,44 +424,49 @@ body {
 }
 
 .btn-secondary {
-  background-color: var(--color-secondary);
-  color: white;
-  box-shadow: 0 10px 15px -3px rgba(132, 204, 22, 0.3);
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  font-weight: 500;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-secondary-hover);
+  background-color: rgba(94, 116, 242, 0.1);
+  color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
 }
 
 .btn-danger {
-  background-color: rgba(239, 68, 68, 0.1);
-  color: var(--color-red-400);
-  border: 1px solid rgba(239, 68, 68, 0.5);
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-border);
 }
 
 .btn-danger:hover {
-  background-color: rgba(239, 68, 68, 0.2);
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: var(--color-error);
 }
 
 /* ==================== Form Elements ==================== */
 .input-field {
   width: 100%;
-  padding: 0.5rem 1rem;
-  background-color: rgba(6, 78, 59, 0.4);
-  border: 1px solid var(--color-emerald-800);
+  padding: 0.75rem 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
-  color: white;
+  color: var(--color-text);
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .input-field::placeholder {
-  color: rgba(110, 231, 183, 0.5);
+  color: var(--color-text-muted);
 }
 
 .input-field:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--color-primary);
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-hover);
 }
 
 .input-field.code-input {
@@ -460,6 +475,7 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-family: var(--font-mono);
+  background-color: var(--color-bg);
 }
 
 textarea.input-field {
@@ -469,19 +485,18 @@ textarea.input-field {
 
 /* ==================== Cards ==================== */
 .card {
-  background-color: rgba(6, 78, 59, 0.4);
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--color-emerald-800);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
 .card-dashed {
   border-style: dashed;
   border-width: 2px;
-  border-color: var(--color-slate-700);
-  background-color: rgba(30, 41, 59, 0.3);
+  border-color: var(--color-border);
+  background-color: rgba(94, 116, 242, 0.05);
+  /* Very subtle tint */
 }
 
 /* ==================== Header/Navigation ==================== */
@@ -490,11 +505,10 @@ textarea.input-field {
   flex-direction: column;
   gap: 1rem;
   margin-bottom: 2rem;
-  background-color: rgba(30, 41, 59, 0.5);
+  background-color: var(--color-surface);
   padding: 1.5rem;
   border-radius: 0.75rem;
-  backdrop-filter: blur(4px);
-  border: 1px solid var(--color-slate-700);
+  border: 1px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
@@ -524,10 +538,7 @@ textarea.input-field {
   font-weight: 700;
   text-align: center;
   margin-bottom: 2rem;
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
 }
 
 .role-selector {
@@ -539,33 +550,37 @@ textarea.input-field {
 .role-btn {
   padding: 1rem;
   border-radius: 0.75rem;
-  border: 1px solid var(--color-emerald-800);
+  border: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  background-color: rgba(6, 78, 59, 0.4);
-  color: rgba(52, 211, 153, 0.6);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
 }
 
 .role-btn:hover {
-  background-color: rgba(6, 78, 59, 0.6);
+  background-color: var(--color-surface-hover);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
 }
 
 .role-btn.active-student {
-  background-color: rgba(16, 185, 129, 0.2);
+  background-color: rgba(94, 116, 242, 0.1);
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
 
 .role-btn.active-professor {
-  background-color: rgba(132, 204, 22, 0.2);
-  border-color: var(--color-secondary);
-  color: var(--color-secondary);
+  background-color: rgba(34, 46, 114, 0.2);
+  border-color: var(--color-primary-dark);
+  color: var(--color-text);
+  /* Ensure readable text on dark blue */
 }
 
+/* ==================== Feedback Buttons (Student) ==================== */
 /* ==================== Feedback Buttons (Student) ==================== */
 .feedback-grid {
   display: flex;
@@ -577,66 +592,74 @@ textarea.input-field {
 }
 
 .feedback-btn {
-  height: 6rem;
+  height: 5rem;
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  border: none;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
   cursor: pointer;
   transition: all 0.1s ease;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
 
 .feedback-btn:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
+}
+
+.feedback-btn:hover {
+  border-color: var(--color-text-muted);
 }
 
 .feedback-btn.happy {
-  background-color: var(--color-green-500);
+  border-color: var(--color-success);
+  color: var(--color-success);
 }
 
 .feedback-btn.happy:hover {
-  background-color: var(--color-green-600);
+  background-color: rgba(34, 197, 94, 0.1);
 }
 
 .feedback-btn.unhappy {
-  background-color: var(--color-red-500);
+  border-color: var(--color-error);
+  color: var(--color-error);
 }
 
 .feedback-btn.unhappy:hover {
-  background-color: #dc2626;
+  background-color: rgba(239, 68, 68, 0.1);
 }
 
 .feedback-btn.surprised {
-  background-color: var(--color-blue-500);
+  border-color: var(--color-info);
+  color: var(--color-info);
 }
 
 .feedback-btn.surprised:hover {
-  background-color: var(--color-blue-600);
+  background-color: rgba(94, 116, 242, 0.1);
 }
 
 .feedback-btn.confused {
-  background-color: var(--color-orange-500);
+  border-color: var(--color-warning);
+  color: var(--color-warning);
 }
 
 .feedback-btn.confused:hover {
-  background-color: var(--color-orange-600);
+  background-color: rgba(245, 158, 11, 0.1);
 }
 
 .feedback-btn .emoji {
-  font-size: 2.25rem;
+  font-size: 2rem;
 }
 
 .feedback-btn .label {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: inherit;
 }
 
 .feedback-btn.disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   filter: grayscale(1);
   pointer-events: none;
 }
@@ -645,7 +668,11 @@ textarea.input-field {
 .feedback-log {
   display: flex;
   flex-direction: column;
-  height: 600px;
+  height: 100%;
+  max-height: 600px;
+  /* Prevent it from stretching indefinitely */
+  min-height: 300px;
+  /* Ensure reasonable space */
 }
 
 .feedback-log-header {
@@ -655,6 +682,7 @@ textarea.input-field {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--color-text);
 }
 
 .feedback-list {
@@ -668,15 +696,19 @@ textarea.input-field {
 }
 
 .feedback-list::-webkit-scrollbar-thumb {
-  background-color: var(--color-slate-700);
+  background-color: var(--color-border);
   border-radius: 3px;
 }
 
+.feedback-list::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
 .feedback-item {
-  background-color: rgba(15, 23, 42, 0.5);
+  background-color: var(--color-surface);
   padding: 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid rgba(51, 65, 85, 0.5);
+  border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -702,12 +734,13 @@ textarea.input-field {
 
 .feedback-item .info .type {
   font-size: 0.875rem;
-  color: var(--color-slate-300);
+  color: var(--color-text);
+  font-weight: 500;
 }
 
 .feedback-item .info .time {
   font-size: 0.75rem;
-  color: var(--color-slate-500);
+  color: var(--color-text-muted);
 }
 
 /* ==================== Status Indicators ==================== */
@@ -718,12 +751,12 @@ textarea.input-field {
 }
 
 .status-dot.active {
-  background-color: var(--color-green-500);
+  background-color: var(--color-success);
   animation: pulse 2s infinite;
 }
 
 .status-dot.inactive {
-  background-color: var(--color-slate-500);
+  background-color: var(--color-text-muted);
 }
 
 @keyframes pulse {
@@ -731,58 +764,63 @@ textarea.input-field {
   0%,
   100% {
     opacity: 1;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.2);
   }
 
   50% {
-    opacity: 0.5;
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
   }
 }
 
 .badge {
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.75rem;
   border-radius: 9999px;
+  font-weight: 500;
 }
 
 .badge-active {
-  background-color: rgba(34, 197, 94, 0.2);
-  color: var(--color-green-400);
+  background-color: rgba(34, 197, 94, 0.1);
+  color: var(--color-success);
+  border: 1px solid rgba(34, 197, 94, 0.2);
 }
 
 .badge-ended {
-  background-color: var(--color-slate-700);
-  color: var(--color-slate-400);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
 }
 
 .badge-danger {
-  background-color: rgba(239, 68, 68, 0.2);
-  color: var(--color-red-400);
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-error);
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
 
 /* ==================== Timer/Countdown ==================== */
 .countdown-badge {
   display: inline-block;
-  background-color: rgba(30, 41, 59, 0.8);
+  background-color: var(--color-surface);
   padding: 0.5rem 1rem;
   border-radius: 9999px;
-  border: 1px solid var(--color-slate-600);
+  border: 1px solid var(--color-border);
 }
 
 .countdown-value {
   font-family: var(--font-mono);
   font-weight: 700;
-  color: var(--color-emerald-400);
+  color: var(--color-primary);
 }
 
 .timer-box {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: rgba(15, 23, 42, 0.5);
+  background-color: var(--color-surface);
   padding: 0.25rem 0.75rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--color-slate-700);
+  border: 1px solid var(--color-border);
 }
 
 /* ==================== Grid Layouts ==================== */
@@ -803,6 +841,8 @@ textarea.input-field {
   grid-template-columns: 1fr;
   gap: 2rem;
   flex: 1;
+  align-items: start;
+  /* Prevents cards from stretching to full height */
 }
 
 @media (min-width: 1024px) {
@@ -817,16 +857,20 @@ textarea.input-field {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px dashed var(--color-border);
+  border-radius: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .activity-placeholder .content {
   text-align: center;
-  color: var(--color-slate-500);
+  color: var(--color-text-muted);
 }
 
 .activity-placeholder .icon {
   margin-bottom: 1rem;
   opacity: 0.5;
+  color: var(--color-text-muted);
 }
 
 /* ==================== History List ==================== */
@@ -837,22 +881,22 @@ textarea.input-field {
 }
 
 .history-item {
-  background-color: rgba(15, 23, 42, 0.5);
+  background-color: var(--color-surface);
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid rgba(51, 65, 85, 0.5);
+  border: 1px solid var(--color-border);
   cursor: pointer;
   transition: all 0.2s ease;
   margin-bottom: 0.75rem;
 }
 
 .history-item:hover {
-  border-color: rgba(16, 185, 129, 0.5);
-  background-color: rgba(30, 41, 59, 0.5);
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-hover);
 }
 
 .history-item:hover .title {
-  color: var(--color-emerald-300);
+  color: var(--color-primary);
 }
 
 .history-item .header {
@@ -864,13 +908,13 @@ textarea.input-field {
 
 .history-item .title {
   font-weight: 600;
-  color: white;
+  color: var(--color-text);
   transition: color 0.2s ease;
 }
 
 .history-item .meta {
   font-size: 0.75rem;
-  color: var(--color-slate-400);
+  color: var(--color-text-muted);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -878,16 +922,19 @@ textarea.input-field {
 
 .history-item .code {
   font-family: var(--font-mono);
-  background-color: var(--color-slate-800);
-  padding: 0 0.25rem;
+  background-color: var(--color-bg);
+  padding: 0.1rem 0.4rem;
   border-radius: 0.25rem;
-  color: var(--color-slate-300);
+  color: var(--color-text-light);
+  /* Slightly lighter than muted */
+  border: 1px solid var(--color-border);
 }
 
 .history-item .description {
-  opacity: 0.7;
+  opacity: 0.8;
   font-style: italic;
   margin-top: 0.25rem;
+  color: var(--color-text-muted);
 }
 
 /* ==================== Alert/Notice ==================== */
@@ -898,18 +945,18 @@ textarea.input-field {
 
 .alert-ended {
   background-color: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.5);
-  color: var(--color-red-400);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: var(--color-error);
 }
 
 /* ==================== Description Box ==================== */
 .description-box {
-  background-color: rgba(30, 41, 59, 0.5);
+  background-color: var(--color-light);
   padding: 1rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(51, 65, 85, 0.5);
+  border: 1px solid var(--color-border);
   font-size: 0.875rem;
-  color: var(--color-slate-300);
+  color: var(--color-text-light);
 }
 
 /* ==================== Utility Classes ==================== */
@@ -980,9 +1027,10 @@ textarea.input-field {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-slate-800);
+  background-color: var(--color-surface);
   border-radius: 0.5rem;
   overflow: hidden;
+  border: 1px solid var(--color-border);
 }
 
 .whiteboard-toolbar {
@@ -990,8 +1038,8 @@ textarea.input-field {
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
-  background-color: var(--color-slate-900);
-  border-bottom: 1px solid var(--color-slate-700);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
   flex-wrap: wrap;
 }
 
@@ -1002,28 +1050,30 @@ textarea.input-field {
   width: 40px;
   height: 40px;
   border-radius: 0.5rem;
-  border: 1px solid var(--color-slate-600);
-  background-color: var(--color-slate-800);
-  color: var(--color-slate-300);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .tool-btn:hover {
-  background-color: var(--color-slate-700);
+  background-color: var(--color-surface-hover);
+  color: var(--color-text);
+  border-color: var(--color-text-muted);
 }
 
 .tool-btn.active {
-  background-color: var(--color-primary);
+  background-color: rgba(94, 116, 242, 0.1);
   border-color: var(--color-primary);
-  color: white;
+  color: var(--color-primary);
 }
 
 .size-control {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-slate-400);
+  color: var(--color-text-muted);
   font-size: 0.875rem;
 }
 
@@ -1034,9 +1084,9 @@ textarea.input-field {
 
 .clear-btn {
   padding: 0.5rem 1rem;
-  background-color: rgba(239, 68, 68, 0.2);
-  color: var(--color-red-400);
-  border: 1px solid rgba(239, 68, 68, 0.4);
+  background-color: transparent;
+  color: var(--color-error);
+  border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   cursor: pointer;
   font-size: 0.875rem;
@@ -1044,7 +1094,8 @@ textarea.input-field {
 }
 
 .clear-btn:hover {
-  background-color: rgba(239, 68, 68, 0.3);
+  background-color: rgba(239, 68, 68, 0.1);
+  border-color: var(--color-error);
 }
 
 .whiteboard-canvas {
@@ -1052,17 +1103,19 @@ textarea.input-field {
   width: 100%;
   height: auto;
   background-color: #ffffff;
+  /* Keep canvas white for drawing */
 }
 
 .whiteboard-view-only {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: rgba(30, 30, 30, 0.8);
+  color: var(--color-text);
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
+  border: 1px solid var(--color-border);
 }
 
 /* ==================== Student Activity Layout ==================== */
